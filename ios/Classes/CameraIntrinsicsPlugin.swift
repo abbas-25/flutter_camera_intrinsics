@@ -21,11 +21,7 @@ public class CameraIntrinsicsPlugin: NSObject, FlutterPlugin {
     }
 
     private func getIntrinsics(result: @escaping FlutterResult) {
-        if let cached = cachedIntrinsics {
-            result(cached)
-            return
-        }
-
+      
         guard ARWorldTrackingConfiguration.isSupported else {
             result(FlutterError(code: "ARKIT_NOT_SUPPORTED", message: "ARKit is not supported on this device", details: nil))
             return
@@ -69,7 +65,6 @@ public class CameraIntrinsicsPlugin: NSObject, FlutterPlugin {
             "distortion": [] as [Double]
         ]
 
-        cachedIntrinsics = intrinsicsMap
         cleanup()
         result(intrinsicsMap)
     }

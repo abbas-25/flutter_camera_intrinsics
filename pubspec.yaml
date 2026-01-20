@@ -1,5 +1,5 @@
 name: camera_intrinsics
-description: "A Flutter plugin to retrieve camera intrinsics (focal length, principal point, image dimensions, distortion coefficients) using ARCore. Android only."
+description: "A Flutter plugin to retrieve camera intrinsics (focal length, principal point, image dimensions, distortion coefficients) using ARCore (Android) and ARKit (iOS)."
 version: 0.0.1
 homepage: https://github.com/abbas-25/camera_intrinsics
 repository: https://github.com/abbas-25/flutter_camera_intrinsics.git
@@ -43,6 +43,8 @@ flutter:
       android:
         pluginClass: CameraIntrinsicsPlugin
         package: com.camera_intrinsics
+      ios:
+        pluginClass: CameraIntrinsicsPlugin
     # -------------------
 
   # To add assets to your plugin package, add an assets section, like this:

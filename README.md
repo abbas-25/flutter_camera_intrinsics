@@ -1,18 +1,24 @@
 # camera_intrinsics
 
-A Flutter plugin to retrieve camera intrinsics (focal length, principal point, image dimensions, distortion coefficients) using ARCore.
+A Flutter plugin to retrieve camera intrinsics (focal length, principal point, image dimensions, distortion coefficients) using ARCore (Android) and ARKit (iOS).
 
 ## Platform Support
 
 | Android | iOS |
 |:-------:|:---:|
-|    ✅    |  ❌  |
+|    ✅    |  ✅  |
 
 ## Requirements
 
-- **Android minSdkVersion**: 24 or higher
+### Android
+- **minSdkVersion**: 24 or higher
 - **ARCore**: Device must support ARCore (Google Play Services for AR)
 - **Camera Permission**: Required at runtime
+
+### iOS
+- **iOS**: 13.0 or higher
+- **ARKit**: Device must support ARKit (iPhone 6s or later)
+- **Camera Permission**: Required (add to Info.plist)
 
 ## Setup
 
@@ -24,6 +30,15 @@ Add the following to your app's `AndroidManifest.xml` inside the `<application>`
 <meta-data
     android:name="com.google.ar.core"
     android:value="required" />
+```
+
+### iOS
+
+Add camera permission to your `Info.plist`:
+
+```xml
+<key>NSCameraUsageDescription</key>
+<string>Camera access is required to get camera intrinsics</string>
 ```
 
 ## Usage
@@ -56,13 +71,20 @@ CameraIntrinsics.clearCache();
 | `focalLength` | `List<double>` | Focal length in pixels [fx, fy] |
 | `principalPoint` | `List<double>` | Principal point [cx, cy] |
 | `imageDimensions` | `List<int>` | Image size [width, height] |
-| `distortion` | `List<double>` | Distortion coefficients |
+| `distortion` | `List<double>` | Distortion coefficients (Android only, empty on iOS) |
 
 ## Error Codes
 
+### Android
 | Code | Description |
 |------|-------------|
 | `CAMERA_PERMISSION_NOT_GRANTED` | Camera permission was denied |
 | `NOT_ATTACHED` | Plugin not attached to activity |
 | `INTRINSICS_UNAVAILABLE` | Could not get intrinsics (tracking failed) |
 | `ARCORE_ERROR` | ARCore session error |
+
+### iOS
+| Code | Description |
+|------|-------------|
+| `ARKIT_NOT_SUPPORTED` | ARKit is not supported on this device |
+| `INTRINSICS_UNAVAILABLE` | No AR frame available |

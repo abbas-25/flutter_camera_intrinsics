@@ -12,3 +12,7 @@
 ## 0.0.3
 
 * Updated README description to mention camera calibration
+
+## 0.0.3
+
+* Fix: updated incorrect homepage url

@@ -8,3 +8,7 @@
 ## 0.0.2
 
 * iOS Support via ARKit (distortion coefficients not available on iOS)
+
+## 0.0.3
+
+* Updated README description to mention camera calibration

@@ -1,6 +1,6 @@
 # camera_intrinsics
 
-A Flutter plugin to retrieve camera intrinsics (focal length, principal point, image dimensions, distortion coefficients) using ARCore (Android) and ARKit (iOS).
+A Flutter plugin to retrieve camera intrinsics from ARCore (Android) and ARKit (iOS) for camera calibration and image geometry calculations.
 
 ## Platform Support
 
@@ -19,6 +19,9 @@ A Flutter plugin to retrieve camera intrinsics (focal length, principal point, i
 - **iOS**: 13.0 or higher
 - **ARKit**: Device must support ARKit (iPhone 6s or later)
 - **Camera Permission**: Required (add to Info.plist)
+
+## Limits
+- **iOS**: Distortion coefficients unavailable
 
 ## Setup
 

@@ -26,9 +26,11 @@ class CameraIntrinsics {
         intrinsics: _cachedIntrinsics!,
         isCached: false,
       );
+    } on PlatformException {
+      rethrow;
     } catch (exception) {
       throw PlatformException(
-        code: 'getIntrinsics',
+        code: 'UNKNOWN_ERROR',
         message: exception.toString(),
       );
     }

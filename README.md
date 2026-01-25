@@ -91,3 +91,28 @@ CameraIntrinsics.clearCache();
 |------|-------------|
 | `ARKIT_NOT_SUPPORTED` | ARKit is not supported on this device |
 | `INTRINSICS_UNAVAILABLE` | No AR frame available |
+
+## Contributing
+
+Contributions are welcome! Fork the repo, make your changes, and submit a pull request.
+
+### Project Structure
+
+```
+camera_intrinsics/
+├── lib/                          # Dart plugin interface
+├── android/src/main/kotlin/      # Android (Kotlin) implementation
+├── ios/Classes/                  # iOS (Swift) implementation
+└── example/                      # Example Flutter app
+```
+
+### Guidelines
+
+- Test on both Android and iOS if possible
+- Keep PRs focused on a single feature or fix
+- Update CHANGELOG.md for user-facing changes
+- Follow platform-specific code conventions ([Dart](https://dart.dev/guides/language/effective-dart/style), [Kotlin](https://kotlinlang.org/docs/coding-conventions.html), [Swift](https://swift.org/documentation/api-design-guidelines/))
+
+### Reporting Issues
+
+Please include: device model, OS version, Flutter version, steps to reproduce, and any error logs.
